@@ -13,26 +13,45 @@ public class Rational {
 	}
 	
 	// Gets the numerator.
+	/**
+	 * Gets the numerator.
+	 * @return Returns the numerator.
+	 */
 	public int getNumerator() {
 		return numerator;
 	}
 	
 	// Gets the denominator.
+	/**
+	 * Gets the denominator.
+	 * @return Returns the denominator.
+	 */
 	public int getDenominator() {
 		return denominator;
 	}
 	
 	// Sets the numerator.
+	/**
+	 * Sets the numerator.
+	 * @param numerator Sets the numerator.
+	 */
 	public void setNumerator(int numerator) {
 		this.numerator = numerator;
 	}
 	
 	// Sets the denominator.
+	/**
+	 * Sets the denominator.
+	 * @param denominator Sets the denominator.
+	 */
 	public void setDenominator(int denominator) {
 		this.denominator = denominator;
 	}
 	
 	// Gets the user's inputs.
+	/**
+	 * Gets the user's inputs.
+	 */
 	public void inputRational() {
 		System.out.print("Please enter a numerator: ");
 		setNumerator(scan.nextInt());
@@ -41,12 +60,22 @@ public class Rational {
 	}
 	
 	// Prints out the rational number.
+	/**
+	 * Prints out the rational number.
+	 * @return Returns a string representation of the rational.
+	 */
 	public String toString() {
 		return getNumerator() + "/" + getDenominator();
 		//return getNumerator() + "\n-\n" + getDenominator();
 	}
 	
 	// Gets the greatest common divisor among the numbers.
+	/**
+	 * Gets the greatest common divisor among the numbers.
+	 * @param m The numerator.
+	 * @param n The denominator.
+	 * @return Returns the greatest common divisor.
+	 */
 	private int gcd(int m, int n) {
 		int r;
 		while (n != 0) {
@@ -58,6 +87,11 @@ public class Rational {
 	}
 	
 	// Adds rational numbers.
+	/**
+	 * Adds rational numbers.
+	 * @param f Input the first rational number.
+	 * @return Returns a rational number.
+	 */
 	public Rational add(Rational f) {
 		Rational newNumber = new Rational();
 		int fNumerator = f.getNumerator();
@@ -71,6 +105,11 @@ public class Rational {
 	}
 	
 	// Subtracts rational numbers.
+	/**
+	 * Subtracts rational numbers.
+	 * @param f1 Inputs the first rational number.
+	 * @param f2 Inputs the second rational number.
+	 */
 	public void sub(Rational f1, Rational f2) {
 		Rational newNumber = new Rational();
 		int f1Numerator = f1.getNumerator();
@@ -91,6 +130,11 @@ public class Rational {
 	}
 	
 	// Multiplies rational numbers.
+	/**
+	 * Multiplies rational numbers.
+	 * @param f Inputs the first rational number.
+	 * @return Returns a rational number.
+	 */
 	public Rational mul(Rational f) {
 		Rational newNumber = new Rational();
 		int fNumerator = f.getNumerator();
@@ -104,6 +148,11 @@ public class Rational {
 	}
 	
 	// Divides rational numbers.
+	/**
+	 * Divides rational numbers.
+	 * @param f1 Inputs the first rational number.
+	 * @param f2 Inputs the second rational number.
+	 */
 	public void div(Rational f1, Rational f2) {
 		Rational newNumber = new Rational();
 		int f1Numerator = f1.getNumerator();

@@ -1,10 +1,23 @@
+/**
+ * 
+ * @author David Van
+ * @version 1.0
+ *
+ */
 
 public class RationalNumbers {
 	
+	/** First rational number. */
 	public static Rational myRational;
+	/** Second rational number. */
 	public static Rational myRational2;
+	/** Third, optional, rational number. */
 	public static Rational myRational3;
 	
+	/**
+	 * 
+	 * @param args Gets arguments from the user when launching from command line.
+	 */
 	public static void main(String[] args) {
 		
 		// Creates three rational numbers.
@@ -62,7 +75,12 @@ public class RationalNumbers {
 		System.out.println("Denominator: " + myRational2.getDenominator());
 		
 	}
-	
+	/**
+	 * Print the decimal answer of the two rational numbers being divided.
+	 * @param f1 First rational number.
+	 * @param f2 Second rational input.
+	 * @return Print the decimal answer of the two rational numbers being divided.
+	 */
 	public static double Rational(Rational f1, Rational f2) { // Print the decimal answer of the two rational numbers being divided.
 		double decimalAnswer;
 		decimalAnswer = (double)(f1.getNumerator()*f2.getDenominator())/(double)(f1.getDenominator()*f2.getNumerator());
