@@ -49,7 +49,7 @@ public class RationalNumbers {
 		// System.out.println(myRational3.toString()); // In case he needs a rational in main.
 		
 		// Print the decimal answer of the two rational numbers being divided.
-		System.out.println(Rational(myRational, myRational2));
+		System.out.println("The number in decimal: " + Rational(myRational, myRational2));
 		
 		// Change the numbers per the requirements of this project.
 		System.out.println("Changing numerator and denominator...");
