@@ -12,22 +12,27 @@ public class Rational {
 		scan = new Scanner(System.in);
 	}
 	
+	// Gets the numerator.
 	public int getNumerator() {
 		return numerator;
 	}
 	
+	// Gets the denominator.
 	public int getDenominator() {
 		return denominator;
 	}
 	
+	// Sets the numerator.
 	public void setNumerator(int numerator) {
 		this.numerator = numerator;
 	}
 	
+	// Sets the denominator.
 	public void setDenominator(int denominator) {
 		this.denominator = denominator;
 	}
 	
+	// Gets the user's inputs.
 	public void inputRational() {
 		System.out.print("Please enter a numerator: ");
 		setNumerator(scan.nextInt());
@@ -35,11 +40,13 @@ public class Rational {
 		setDenominator(scan.nextInt());
 	}
 	
+	// Prints out the rational number.
 	public String toString() {
 		return getNumerator() + "/" + getDenominator();
 		//return getNumerator() + "\n-\n" + getDenominator();
 	}
 	
+	// Gets the greatest common divisor among the numbers.
 	private int gcd(int m, int n) {
 		int r;
 		while (n != 0) {
@@ -50,6 +57,7 @@ public class Rational {
 		return m;
 	}
 	
+	// Adds rational numbers.
 	public Rational add(Rational f) {
 		Rational newNumber = new Rational();
 		int fNumerator = f.getNumerator();
@@ -62,6 +70,7 @@ public class Rational {
 		return newNumber;
 	}
 	
+	// Subtracts rational numbers.
 	public void sub(Rational f1, Rational f2) {
 		Rational newNumber = new Rational();
 		int f1Numerator = f1.getNumerator();
@@ -76,9 +85,12 @@ public class Rational {
 		}
 		newNumber.setNumerator(finalNumerator/scalar);
 		newNumber.setDenominator(finalDenominator/scalar);
+		// this.setNumerator(finalNumerator/scalar); // In case he needs a rational in main.
+		// this.setDenominator(finalDenominator/scalar); // In case he needs a rational in main.
 		System.out.println(f1.toString() + " - " + f2.toString() + " = " + newNumber.toString());
 	}
 	
+	// Multiplies rational numbers.
 	public Rational mul(Rational f) {
 		Rational newNumber = new Rational();
 		int fNumerator = f.getNumerator();
@@ -91,20 +103,23 @@ public class Rational {
 		return newNumber;
 	}
 	
+	// Divides rational numbers.
 	public void div(Rational f1, Rational f2) {
 		Rational newNumber = new Rational();
 		int f1Numerator = f1.getNumerator();
 		int f1Denominator = f1.getDenominator();
-		int f2Numerator = f2.getDenominator(); // Flipped to divide
-		int f2Denominator = f2.getNumerator(); // Flipped to divide
-		int finalNumerator = f1Numerator*f2Numerator;
-		int finalDenominator = f1Denominator*f2Denominator;
+		int f2Numerator = f2.getNumerator();
+		int f2Denominator = f2.getDenominator();
+		int finalNumerator = f1Numerator*f2Denominator;
+		int finalDenominator = f1Denominator*f2Numerator;
 		int scalar = gcd(finalNumerator, finalDenominator);
 		if (scalar < 0) {
 			scalar = scalar*-1;
 		}
 		newNumber.setNumerator(finalNumerator/scalar);
 		newNumber.setDenominator(finalDenominator/scalar);
+		// this.setNumerator(finalNumerator/scalar); // In case he needs a rational in main.
+		// this.setDenominator(finalDenominator/scalar); // In case he needs a rational in main.
 		System.out.println(f1.toString() + " / " + f2.toString() + " = " + newNumber.toString());
 	}
 	
