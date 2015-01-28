@@ -1,3 +1,10 @@
+/**
+ * 
+ * @author David Van
+ * @version 1.0
+ *
+ */
+
 import java.util.Scanner;
 
 public class Rational {
