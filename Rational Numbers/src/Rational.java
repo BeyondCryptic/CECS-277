@@ -64,6 +64,9 @@ public class Rational {
 		setNumerator(scan.nextInt());
 		System.out.print("Please enter a denominator: ");
 		setDenominator(scan.nextInt());
+		// int scalar = gcd(getNumerator(), getDenominator());
+		// setNumerator(getNumerator()/scalar);
+		// setDenominator(getDenominator()/scalar);
 	}
 	
 	// Prints out the rational number.
