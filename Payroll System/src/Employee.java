@@ -1,7 +1,8 @@
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 
-public abstract class Employee {
+public abstract class Employee implements Cloneable, Comparable<Employee>{
 	
 	private String lastName;
 	private String firstName;
@@ -22,6 +23,20 @@ public abstract class Employee {
 				+ "\nEmployee Name: " + getName() 
 				+ "\nGender: " + getGender() 
 				+ "\nBirthdate: " + getBirthdate();
+	}
+	
+	public int compareTo(Employee e) {
+		return this.lastName.compareTo(e.lastName);
+	}
+	
+	public static Comparator<Employee> idComparatorDSD = new Comparator<Employee>() {
+		public int compare(Employee e1, Employee e2) {
+			return Integer.parseInt(e2.idNumber)-Integer.parseInt(e1.idNumber);
+		}
+	};
+	
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 	
 	public void setName(String lastName, String firstName) {

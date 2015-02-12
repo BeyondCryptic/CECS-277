@@ -1,5 +1,5 @@
 
-public class Education {
+public class Education implements Cloneable {
 	
 	private String degree;
 	private String major;
@@ -9,6 +9,10 @@ public class Education {
 		degree = "";
 		major = "";
 		numberOfResearch = 0;
+	}
+	
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 	
 	public void setDegree(String degree) {

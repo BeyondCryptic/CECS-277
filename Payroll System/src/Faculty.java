@@ -1,5 +1,5 @@
 
-public class Faculty extends Employee implements EmployeeInfo {
+public class Faculty extends Employee implements EmployeeInfo, Cloneable {
 	
 	private String level;
 	private Education education;
@@ -44,6 +44,13 @@ public class Faculty extends Employee implements EmployeeInfo {
 				+ "\nMonthly Salary: " + monthlyEarnings();
 	}
 	
+	public Object clone() throws CloneNotSupportedException {
+		Faculty aFaculty = (Faculty) super.clone();
+		Education anEducation = (Education) education.clone();
+		setEducation(anEducation);
+		return aFaculty;
+	}
+	
 	public void setLevel(String level) {
 		if (level.equalsIgnoreCase("AS")) {
 			this.level = AS;
@@ -56,6 +63,14 @@ public class Faculty extends Employee implements EmployeeInfo {
 	
 	public String getLevel() {
 		return level;
+	}
+	
+	public void setEducation(Education education) {
+		this.education = education;
+	}
+	
+	public Education getEducation() {
+		return education;
 	}
 	
 	public void setDegree(String degree) {

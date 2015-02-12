@@ -1,7 +1,8 @@
+import java.util.Arrays;
 
 public class ProgramTester {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 		
 		// String id, String lastName, String firstName, String gender, int month, int day, int year, double rate
 		Staff staffOne = new Staff("123", "Allen", "Paita", "M", 2, 23, 1959, 50.00);
@@ -20,9 +21,54 @@ public class ProgramTester {
 		
 		Employee[] employees = {staffOne, staffTwo, staffThree, facultyOne, facultyTwo, facultyThree, partTimeOne, partTimeTwo, partTimeThree};
 		
+		double totalMonthly = 0.00;
+		double totalMonthlyPartTime = 0.00;
+		
 		for (Employee e : employees) {
+			totalMonthly += e.monthlyEarnings();
+			if (e instanceof PartTime) {
+				totalMonthlyPartTime += e.monthlyEarnings();
+			}
 			System.out.println(e + "\n----------------------------------");
 		}
+
+		System.out.println("Total Monthly Salary: " + totalMonthly);
+		System.out.println("Total Monthly Salary (Part-Time): " + totalMonthlyPartTime);
+		
+		System.out.println("Descending Order By ID: ");
+		
+		Employee[] employeesTwo = {staffThree, staffOne, staffTwo, facultyThree, facultyTwo, facultyOne, partTimeOne, partTimeThree, partTimeTwo};
+		
+		Arrays.sort(employeesTwo, Employee.idComparatorDSD);
+		
+		for (Employee e : employeesTwo) {
+			System.out.println(e + "\n----------------------------------");
+		}
+		
+		System.out.println("Ascending Order By Last Name: ");
+		
+		Employee[] employeesThree = {staffThree, staffOne, staffTwo, facultyThree, facultyTwo, facultyOne, partTimeOne, partTimeThree, partTimeTwo};
+		
+		System.out.println("Descending Order By ID: ");
+		
+		Arrays.sort(employeesThree);
+		
+		for (Employee e : employeesThree) {
+			System.out.println(e + "\n----------------------------------");
+		}
+		
+		System.out.println("Test Duplication: ");
+		
+		Faculty testClone = (Faculty) facultyOne.clone();
+		
+		System.out.println("First Faculty's Major: " + facultyOne.getMajor());
+		System.out.println("Cloned Faculty's Major: " + testClone.getMajor());
+		
+		System.out.println("Setting First Faculty's Major to \"Computer Science\"!");
+		facultyOne.setMajor("Computer Science");
+		
+		System.out.println("First Faculty's Major: " + facultyOne.getMajor());
+		System.out.println("Cloned Faculty's Major: " + testClone.getMajor());
 		
 	}
 	
