@@ -49,8 +49,6 @@ public class ProgramTester {
 		
 		Employee[] employeesThree = {staffThree, staffOne, staffTwo, facultyThree, facultyTwo, facultyOne, partTimeOne, partTimeThree, partTimeTwo};
 		
-		System.out.println("Descending Order By ID: ");
-		
 		Arrays.sort(employeesThree);
 		
 		for (Employee e : employeesThree) {
