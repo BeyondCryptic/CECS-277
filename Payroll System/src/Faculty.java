@@ -47,7 +47,7 @@ public class Faculty extends Employee implements EmployeeInfo, Cloneable {
 	public Object clone() throws CloneNotSupportedException {
 		Faculty aFaculty = (Faculty) super.clone();
 		Education anEducation = (Education) education.clone();
-		setEducation(anEducation);
+		aFaculty.setEducation(anEducation);
 		return aFaculty;
 	}
 	
