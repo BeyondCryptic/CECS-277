@@ -1,8 +1,14 @@
+// import java.io.BufferedOutputStream;
+// import java.io.FileNotFoundException;
+// import java.io.FileOutputStream;
+// import java.io.PrintStream;
 import java.util.Arrays;
 
 public class ProgramTester {
 	
-	public static void main(String[] args) throws CloneNotSupportedException {
+	public static void main(String[] args) throws CloneNotSupportedException/*, FileNotFoundException*/ {
+		
+		// System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("output.txt")), true));
 		
 		// String id, String lastName, String firstName, String gender, int month, int day, int year, double rate
 		Staff staffOne = new Staff("123", "Allen", "Paita", "M", 2, 23, 1959, 50.00);
@@ -18,6 +24,8 @@ public class ProgramTester {
 		PartTime partTimeOne = new PartTime("455", "Guzman", "Augusto", "F", 8, 10, 1977, 35.00, 30);
 		PartTime partTimeTwo = new PartTime("678", "Depirro", "Martin", "F", 9, 15, 1987, 30.00, 15);
 		PartTime partTimeThree = new PartTime("945", "Aldaco", "Marque", "M", 11, 24, 1988, 20.00, 35);
+		
+		System.out.println("Unsorted List: ");
 		
 		Employee[] employees = {staffOne, staffTwo, staffThree, facultyOne, facultyTwo, facultyThree, partTimeOne, partTimeTwo, partTimeThree};
 		
@@ -35,7 +43,7 @@ public class ProgramTester {
 		System.out.println("Total Monthly Salary: " + totalMonthly);
 		System.out.println("Total Monthly Salary (Part-Time): " + totalMonthlyPartTime);
 		
-		System.out.println("Descending Order By ID: ");
+		System.out.println("Sorted By Descending Order By ID: ");
 		
 		Employee[] employeesTwo = {staffThree, staffOne, staffTwo, facultyThree, facultyTwo, facultyOne, partTimeOne, partTimeThree, partTimeTwo};
 		
@@ -45,7 +53,7 @@ public class ProgramTester {
 			System.out.println(e + "\n----------------------------------");
 		}
 		
-		System.out.println("Ascending Order By Last Name: ");
+		System.out.println("Sorted By Ascending Order By Last Name: ");
 		
 		Employee[] employeesThree = {staffThree, staffOne, staffTwo, facultyThree, facultyTwo, facultyOne, partTimeOne, partTimeThree, partTimeTwo};
 		
