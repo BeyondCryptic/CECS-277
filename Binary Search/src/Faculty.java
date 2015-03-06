@@ -1,11 +1,11 @@
 import java.util.Comparator;
 
 
-public class Faculty implements EmployeeInfo, Comparable<Faculty>{
+public class Faculty implements EmployeeInfo, Comparable<Faculty> {
 	
 	private String lastName;
 	private String firstName;
-	private String idNumber;
+	private int idNumber;
 	private String gender;
 	private String level;
 	private Education education;
@@ -16,7 +16,7 @@ public class Faculty implements EmployeeInfo, Comparable<Faculty>{
 	public Faculty() {
 		lastName = "";
 		firstName = "";
-		idNumber = "";
+		idNumber = 0;
 		gender = "";
 		level = "";
 		education = new Education();
@@ -25,7 +25,7 @@ public class Faculty implements EmployeeInfo, Comparable<Faculty>{
 		FU = "Full-Time Professor";
 	}
 	
-	public Faculty(String id, String lastName, String firstName, String gender, String level, String degree, String major, int numberOfResearch) {
+	public Faculty(int id, String lastName, String firstName, String gender, String level, String degree, String major, int numberOfResearch) {
 		this.level = "";
 		education = new Education();
 		AS = "Assistant Professor";
@@ -51,8 +51,8 @@ public class Faculty implements EmployeeInfo, Comparable<Faculty>{
 				+ "\nMonthly Salary: " + monthlyEarnings();
 	}
 	
-	public int compareTo(Faculty e) {
-		return this.lastName.compareTo(e.lastName);
+	public int compareTo(Faculty f) {
+		return this.idNumber - f.idNumber;
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class Faculty implements EmployeeInfo, Comparable<Faculty>{
 	 */
 	public static Comparator<Faculty> idComparatorDSD = new Comparator<Faculty>() {
 		public int compare(Faculty f1, Faculty f2) {
-			return Integer.parseInt(f2.idNumber)-Integer.parseInt(f1.idNumber);
+			return f2.idNumber - f1.idNumber;
 		}
 	};
 	
@@ -82,11 +82,19 @@ public class Faculty implements EmployeeInfo, Comparable<Faculty>{
 		return firstName + " " + lastName;
 	}
 	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
 	/**
 	 * Sets the ID Number.
 	 * @param idNumber ID Number.
 	 */
-	public void setID(String idNumber) {
+	public void setID(int idNumber) {
 		this.idNumber = idNumber;
 	}
 	
@@ -94,7 +102,7 @@ public class Faculty implements EmployeeInfo, Comparable<Faculty>{
 	 * Gets the ID Number.
 	 * @return Returns the ID Number.
 	 */
-	public String getID() {
+	public int getID() {
 		return idNumber;
 	}
 	

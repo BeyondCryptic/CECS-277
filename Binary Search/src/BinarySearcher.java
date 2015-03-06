@@ -8,17 +8,18 @@ public class BinarySearcher<T extends Comparable<T>> {
 	}
 	
 	public int BinarySearcher(T object) {
-		int middle = array.length/2;
+		int min = 0;
 		int max = array.length;
-		while (max >= middle) {
-			if (array[middle].equals(object)) {
+		while (max >= min) {
+			int middle = (max+min)/2;
+			if (array[middle].compareTo(object) == 0) {
 				return middle;
 			}
-			else if (array[middle].compareTo(object) > 1) {
-				middle = middle + 1;
+			else if (array[middle].compareTo(object) < 0) {
+				min = middle + 1;
 			}
 			else {
-				max = max - 1;
+				max = middle - 1;
 			}
 		}
 		return -1;
