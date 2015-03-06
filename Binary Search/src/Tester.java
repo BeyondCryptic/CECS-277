@@ -61,7 +61,5 @@ public class Tester {
 		input = scan.nextInt();
 		
 		System.out.println("The index of " + input + " is: " + searchTwo.BinarySearcher(input));
-		
-		System.out.println(Arrays.toString(numbers));
 	}
 }
