@@ -9,7 +9,7 @@ public class BinarySearcher<T extends Comparable<T>> {
 	
 	public int BinarySearcher(T object) {
 		int min = 0;
-		int max = array.length;
+		int max = array.length-1;
 		while (max >= min) {
 			int middle = (max+min)/2;
 			if (array[middle].compareTo(object) == 0) {
