@@ -27,12 +27,9 @@ public class Tester {
 		
 		numberInput = scan.nextInt();
 		
-		Faculty searchForThis =  new Faculty(numberInput, "Employee", "Fake", "M", "FU", "Ph.D", "Computer Science", 0);;
+		Faculty searchForThis =  new Faculty(numberInput, "Employee", "Fake", "M", "FU", "Ph.D", "Computer Science", 0);
 		
-		// Below doesn't work yet...
 		System.out.println("The index of " + numberInput + " is: " + searchOne.BinarySearcher(searchForThis));
-		
-		// Stuff under here works.
 		
 		ArrayList<Integer> userNumber = new ArrayList<Integer>();
 		
