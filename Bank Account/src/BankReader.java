@@ -19,7 +19,7 @@ public class BankReader {
 				// Read the file	
 				bank.readFile(filename);
 				// Display the highest balance
-				System.out.println("Highest Balance: " + bank.getHighestBalance().checkBalance());
+				System.out.println("Highest Balance: " + bank.getHighestBalance().checkBalance() + " from account " + bank.getHighestBalance().accountNumber + ".");
 				done = true;
 			} 
 			// Catch file not found exception and get the file name again

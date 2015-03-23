@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 */
 public class BankAccount {
 	private double balance;
-	private int accountNumber;
+	public int accountNumber;
 
 	/**
 	Constructs a bank account with a zero balance.
