@@ -43,7 +43,6 @@ public class Lottery {
 			}
 			ticket.add(input);
 		}
-		in.close();
 		return ticket;
 	}
 	
