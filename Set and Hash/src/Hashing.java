@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
@@ -11,8 +11,8 @@ public class Hashing {
 	public Set<Employee> employeesHash;
 	
 	public Hashing() {
-		employees = new HashMap<Integer, Employee>();
-		performance = new HashMap<Employee, Integer>();
+		employees = new TreeMap<Integer, Employee>();
+		performance = new TreeMap<Employee, Integer>();
 		employeesHash = new HashSet<Employee>();
 		Scanner scan = new Scanner(System.in);
 		int userChoice = 0;
@@ -68,7 +68,7 @@ public class Hashing {
 		System.out.println("1. Add Employee\n2. Remove Employee\n3. Modify Performances\n4. Print All Performances\n5. Add To Hash Set And Print Hash Code\n6. Quit");
 	}
 	
-	public class Employee {
+	public class Employee implements Comparable<Employee> {
 		public String firstName;
 		public String lastName;
 		public int idNumber;
@@ -90,7 +90,7 @@ public class Hashing {
 		}
 		
 		public boolean equals(Employee e) {
-			if (firstName.equals(e.firstName) && lastName.equals(e.lastName) && idNumber == e.idNumber) {
+			if (this.firstName.equals(e.firstName) && this.lastName.equals(e.lastName) && this.idNumber == e.idNumber) {
 				return true;
 			}
 			return false;
@@ -101,6 +101,16 @@ public class Hashing {
 			int h = HASH_MULTIPLIER * firstName.hashCode() + lastName.hashCode();
 			h = HASH_MULTIPLIER * h + ((Integer) idNumber).hashCode();
 			return h;
+		}
+
+		public int compareTo(Employee e) {
+			if (this.lastName.compareTo(e.lastName) == 0) {
+				if (this.firstName.compareTo(e.firstName) == 0) {
+					return this.idNumber-e.idNumber;
+				}
+				return this.firstName.compareTo(e.firstName);
+			}
+			return this.lastName.compareTo(e.lastName);
 		}
 		
 	}
