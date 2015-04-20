@@ -12,7 +12,7 @@ public class MeasurableDemo {
 		words.add(new MeasurableString("a"));
 		words.add(new MeasurableString("little"));
 		words.add(new MeasurableString("lamb"));
-		System.out.println("Largest word: " + measurable.largest(words));
+		System.out.println("Largest word: " + measurable.largest(words).toString());
 		System.out.println("Expected: little");
 	}
 }

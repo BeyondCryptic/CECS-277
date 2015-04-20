@@ -1,5 +1,5 @@
 
-public class MeasurableString {
+public class MeasurableString implements Comparable<MeasurableString> {
 	
 	public String data;
 	public int length;
@@ -17,7 +17,11 @@ public class MeasurableString {
 	public int getMeasure() {
 		return data.toCharArray().length;
 	}
-
+	
+	public int compareTo(MeasurableString s) {
+		return this.length-s.length;
+	}
+	
 	public String toString() {
 		return data;
 	}
