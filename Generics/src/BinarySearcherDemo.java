@@ -1,8 +1,10 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Generics {
+public class BinarySearcherDemo {
 	public static void main(String[] args) {
-		Integer[] searchThis = { 1, 2, 3, 4, 5 };
+		Integer[] searchThis = { 3, 1, 2, 5, 4 };
+		Arrays.sort(searchThis);
 		for (int i : searchThis) {
 			if(i != searchThis[searchThis.length-1]) {
 				System.out.print(i + ", ");
@@ -16,6 +18,5 @@ public class Generics {
 		Scanner scan = new Scanner(System.in);
 		int userNumber = scan.nextInt();
 		System.out.println("Index of " + userNumber + " is: " + searchObject.search(userNumber));
-		StudentGrade students = new StudentGrade();
 	}
 }
