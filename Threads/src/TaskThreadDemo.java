@@ -3,19 +3,23 @@ import java.util.concurrent.*;
 
 public class TaskThreadDemo {
 	public static void main(String[] args) {
-		Thread one = new Thread(new TaskThread(0));
-		Thread two = new Thread(new TaskThread(1));
-		Thread three = new Thread(new TaskThread(2));
-		Thread four = new Thread(new TaskThread(3));
-		one.start();
-		two.start();
-		while (one.isAlive() && two.isAlive()) {
-			// Does nothing but makes sure only two threads are active.
+		TaskThread one = new TaskThread(0);
+		TaskThread two = new TaskThread(1);
+		TaskThread three = new TaskThread(2);
+		TaskThread four = new TaskThread(3);
+		ExecutorService executor = Executors.newFixedThreadPool(2);
+		executor.execute(one);
+		executor.execute(two);
+		try {
+			if (executor.awaitTermination(2750, TimeUnit.MILLISECONDS)) {
+				// This is just a delay.
+				// Blank so the next few lines always executes!
+			}
+			executor.execute(three);
+			executor.execute(four);
+			executor.shutdown();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-		three.start();
-		while (one.isAlive() || two.isAlive()) {
-			// Does nothing but makes sure only two threads are active.
-		}
-		four.start();
 	}
 }
