@@ -34,7 +34,7 @@ public class BankAccount
 			double newBalance = balance + amount; 
 			System.out.println(", new balance is " + newBalance); 
 			balance = newBalance; 
-			lessThanMaxBalanceCondition.signalAll();
+			sufficientFundsCondition.signalAll();
 		} 
 		finally {
 			balanceChangeLock.unlock();
@@ -55,7 +55,7 @@ public class BankAccount
 			double newBalance = balance - amount; 
 			System.out.println(", new balance is " + newBalance); 
 			balance = newBalance; 
-			sufficientFundsCondition.signalAll();
+			lessThanMaxBalanceCondition.signalAll();
 		} 
 		finally {
 			balanceChangeLock.unlock();
